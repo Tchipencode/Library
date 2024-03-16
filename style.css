@@ -2,12 +2,77 @@
    margin: 0;
    padding: 0;
 }
-body, html{
+body,html{
    height: 100%;
+   background-color: #94a3b8;
+}
+.container{
+   
+}
+.library{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   background-color: #e0e7ff;
+   height: 100px;
+}
+.home-title{
+   text-align: center;
+   font-size: 1.3rem;
+   font-weight: bold;
+}
+#addBtn{
+   background-color: #d8b4fe;
+   border: none;
+   border-radius: 5px;
+   width: 130px;
+   height: 40px;
+   font-size: 0.9rem;
+   font-weight: bold;
+   cursor: pointer;
+}
+.display-books{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
+dialog{
+
+   border: none;
+   border-radius: 10px;
+   background-color: #d8b4fe rgba(255, 255, 255, 0.6);  
+}
+#form{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+   border: none;
+   width: 200px;
+   height: 250px;
+   padding: 10px;
+}
+.formInput{
+   gap: 0.8rem;
+
+}
+input, select{
+   height: 20px;
+}
+.submit button{
+   background-color: #94a3b8;
+   border: none;
+   border-radius: 5px;
+   font-size: 0.8rem;
+   font-weight: bold;
+   width: 60px;
+   height: 30px;
 }
 .card{
-   display: inline-block;
-   align-items: center;
+   display: flex;
+   flex-direction: column;
+   align-items: start;
    justify-content: center;
    background-color: #d6d3d1;
    border: none;
@@ -15,12 +80,51 @@ body, html{
    box-shadow: 1px 5px 2px rgba(0, 0, 0, 0.4);
    margin: 10px;
    padding: 15px;
-   width: 180px;
-   height: 130px;
+   width: 200px;
+   height: 150px;
 }
-.bookContain{
+.bookContent{
    display: block;
    align-items: center;
-   justify-content: center;
+   justify-content: space-between;
+   padding: 10px;
+   gap: 1rem;
+}
+.buttonsDiv{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px;
+   gap: 2rem;
+ 
+}
+.buttonsDiv button{
+   cursor: pointer;
 
+}
+.removeBtn{
+   padding: 5px;
+   background-color: #e0e7ff;
+   border: none;
+   border-radius: 5px;
+   font-size: 0.8rem;
+   font-weight: bold;
+   width: 60px;
+}
+.changeRead{
+   padding: 5px;
+   background-color: #e0e7ff;
+   border: none;
+   border-radius: 5px;
+   width: 60px;
+   font-size: 0.8rem;
+   font-weight: bold;
+}
+/* .change.active{
+   background-color: green;
+} */
+p{
+   font-size: 1.2rem;
+   font-weight: 120%;
 }

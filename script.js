@@ -1,5 +1,5 @@
 const showDialog=document.querySelector("#dialog");
-const dialogBtn=document.querySelector("#add-book");
+const dialogBtn=document.querySelector("#addBtn");
 const closeDialog=document.querySelector("#close")
 const submitBtn=dialog.querySelector("#submit");
 const titleInput=document.querySelector("#title");
@@ -31,88 +31,98 @@ function addBookToLibrary() {
 
 function createCard(book, item){
   const card=document.createElement("div");
-  const bookContain=document.createElement("div");
+  card.classList.add("card");
+  booksContainer.appendChild(card);  
+
+  const bookContent=document.createElement("div");
+  bookContent.classList.add("bookContent");
+  card.appendChild(bookContent);
+
+  const buttonsDiv=document.createElement("div");
+  buttonsDiv.classList.add("buttonsDiv");
+  card.appendChild(buttonsDiv);
+
   const bookTitle=document.createElement("h3");
   const bookAuthor=document.createElement("p");
   const bookPages=document.createElement("p");
   const bookRead=document.createElement("p");
 
-  card.classList.add("card");
-  bookContain.classList.add("bookContain");
+  bookContent.appendChild(bookTitle);
+  bookContent.appendChild(bookAuthor);
+  bookContent.appendChild(bookPages);
+  bookContent.appendChild(bookRead);
 
-  card.appendChild(bookContain);
-
-
-  bookContain.appendChild(bookTitle);
-  bookContain.appendChild(bookAuthor);
-  bookContain.appendChild(bookPages);
-  bookContain.appendChild(bookRead);
-  // card.appendChild(btnRemove);
   bookTitle.textContent=book.title;
   bookAuthor.textContent="Author: "+book.author;
   bookPages.textContent="Pages: "+book.pages;
-  bookRead.textContent=book.read;
 
-  // booksContainer.appendChild(card);
+  const removeBtn=document.createElement("button");
+  removeBtn.classList.add("removeBtn");
+  removeBtn.textContent="remove";
+  buttonsDiv.appendChild(removeBtn);
+  removeBtn.addEventListener("click", removeBook);
+
+toggleRead(buttonsDiv);
+  
   return card;
-  // console.log(card);
-
 }
 
 function displayLibrary(){
-
-  // const booksContainer=document.querySelector(".display-books")
   booksContainer.textContent="";
   addBookToLibrary();
   myLibrary.forEach((book, item) =>{
-    // createCard(book, item);
-    const bookCard=createCard(book, item);
-    booksContainer.appendChild(bookCard);
-  
+   createCard(book, item);
+   // const bookCard=createCard(book, item);
+   // booksContainer.appendChild(bookCard);
   });
   clearDialog();
   showDialog.close();
 }
 
-function removeBook(){
-  const btnRemove=document.createElement("button");
-  btnRemove.classList.add("removeBtn");
-  btnRemove.setAttribute("data-id", "+index+");
-  btnRemove.textContent="remove";
-  let bookItems;
-  myLibrary.forEach(book, (index, value)=>{
-    bookItems=[index];
-    console.log(bookItems);
+function removeBook(e){
+   let index=booksContainer.querySelectorAll(".card");
+   myLibrary.splice(Number.parseInt(index), 1);
+   e.target.parentElement.parentElement.remove();
+}
 
-  });
-  let i=$('.removeBtn').data('data-id');
-  console.log(i);
+function toggleRead(container){
+   const readBtn=document.createElement("button");
+   readBtn.classList.add("changeRead");
 
+   if(readInput.value=="already read"){
+      readBtn.textContent="read";
+   }
+   else{
+      readBtn.textContent="No read";
+   }
+   if(readBtn.textContent=="read"){
+      readBtn.classList.toggle("active");
+   }
 
-  btnRemove.addEventListener("click",()=>{
-    let i= parseInt($(this).data("data-id"));
-    book.splice(i,1);
-    booksContainer.removeChild(bookCard);
-  });
+   readBtn.addEventListener("click", ()=>{
+      this.classList.toggle("active");
+      if(readBtn.textContent=="read"){
+         return readBtn.textContent="No read";
+      }
+      else{
+         return readBtn.textContent="read";
+      }
+   });
+   container.appendChild(readBtn);
 }
 
 dialogBtn.addEventListener(("click"), ()=>{
   showDialog.showModal();
-})
+});
 closeDialog.addEventListener("click", (e)=>{
   e.preventDefault();
   clearDialog();
   showDialog.close();
-  
-
-})
+});
 submitBtn.addEventListener(("click"), (e)=>{
   displayLibrary();
   e.preventDefault();
-  // dialog.close();
-  // clearDialog();
-
-})
+});
 function clearDialog(){
   titleInput.value="";
   authorInput.value="";

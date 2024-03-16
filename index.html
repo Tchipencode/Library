@@ -9,17 +9,17 @@
 <body>
    <div class="container">
       <div class="library">
-         <p>LIBRARY</p>
+         <p class="home-title">LIBRARY</p>
          <p>
-            <button type="button" id="add-book">Add new Book</button>
+            <button type="button" id="addBtn">Add new Book</button>
           </p>
       </div>
       <div class="display-books"></div>
    </div>
     <dialog id="dialog">
-      <form action="" method="dialog">
+      <form action="" method="dialog" id="form">
         <p>Library</p>
-        <div class="form">
+        <div class="formInput">
           <label for="title">
             <p>Title</p>
             <input type="text" name="title" id="title">
@@ -41,7 +41,6 @@
             </select>
           </label> 
         </div>
-
         <div class="submit">
           <button type="submit" id="submit">Submit</button> 
           <button type="button" id="close">Cancel</button> 
