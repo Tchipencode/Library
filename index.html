@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>LIBRARY</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="container">
+      <div class="library">
+         <p>LIBRARY</p>
+         <p>
+            <button type="button" id="add-book">Add new Book</button>
+          </p>
+      </div>
+      <div class="display-books"></div>
+   </div>
+    <dialog id="dialog">
+      <form action="" method="dialog">
+        <p>Library</p>
+        <div class="form">
+          <label for="title">
+            <p>Title</p>
+            <input type="text" name="title" id="title">
+          </label> 
+          <label for="author">
+            <p>Author</p>
+            <input type="text" name="author" id="author">
+          </label>
+          <label for="pages">
+            <p>Pages</p>
+            <input type="number" name="pages" id="pages">
+          </label>
+          <label for="read">
+            <p>Select read</p>
+            <select name="read" id="read">
+              <option value="default" id="">Choice..</option>
+              <option id="read-option">already read</option>
+              <option id="read-option">No read yet</option>
+            </select>
+          </label> 
+        </div>
+
+        <div class="submit">
+          <button type="submit" id="submit">Submit</button> 
+          <button type="button" id="close">Cancel</button> 
+        </div>
+      </form>
+    </dialog>
+
+
+   <script src="script.js"></script>
+   
+</body>
+</html>
