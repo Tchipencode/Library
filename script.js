@@ -45,12 +45,12 @@ function createCard(book, item){
   const bookTitle=document.createElement("h3");
   const bookAuthor=document.createElement("p");
   const bookPages=document.createElement("p");
-  const bookRead=document.createElement("p");
+//   const bookRead=document.createElement("p");
 
   bookContent.appendChild(bookTitle);
   bookContent.appendChild(bookAuthor);
   bookContent.appendChild(bookPages);
-  bookContent.appendChild(bookRead);
+//   bookContent.appendChild(bookRead);
 
   bookTitle.textContent=book.title;
   bookAuthor.textContent="Author: "+book.author;
@@ -59,20 +59,20 @@ function createCard(book, item){
 
   const removeBtn=document.createElement("button");
   removeBtn.classList.add("removeBtn");
-  removeBtn.textContent="remove";
+  removeBtn.textContent="Remove";
   buttonsDiv.appendChild(removeBtn);
   removeBtn.addEventListener("click", removeBook);
 
   const readBtn=document.createElement("button");
   readBtn.classList.add("changeRead");
   buttonsDiv.appendChild(readBtn);
-  readBtn.textContent=book.read=="already read"? "read":"No read";
+  readBtn.textContent=book.read=="already read"? "Read":"No read";
   readBtn.addEventListener("click", ()=>{
-   if(readBtn.textContent=="read"){
+   if(readBtn.textContent=="Read"){
       readBtn.textContent="No read";
    }
    else{
-      readBtn.textContent="read";
+      readBtn.textContent="Read";
    }
 });
 

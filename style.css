@@ -41,24 +41,34 @@ dialog{
 
    border: none;
    border-radius: 10px;
-   background-color: #d8b4fe rgba(255, 255, 255, 0.6);  
+   background-color:rgba(255, 255, 255, 0.8 );  
+   transition: 0.2s ease-in;
+   transform: scale(100%) translate(150%, 40%);
+   width: 300px;
+   /* height: 250px; */
 }
 #form{
    display: flex;
    flex-direction: column;
-   justify-content: space-between;
+   justify-content: center;
    align-items: center;
    border: none;
-   width: 200px;
-   height: 250px;
-   padding: 10px;
-}
-.formInput{
-   gap: 0.8rem;
+   height: 350px;
+   padding: 5px;
+   /* margin: 5px;  */
+   /* gap: 1rem; */
 
 }
+
 input, select{
-   height: 20px;
+   height: 25px;
+   width: 250px;
+}
+.submit{
+   display: flex;
+   justify-content: space-between;
+   padding: 10px;
+   gap: 1.5rem;
 }
 .submit button{
    background-color: #94a3b8;
@@ -68,6 +78,7 @@ input, select{
    font-weight: bold;
    width: 60px;
    height: 30px;
+
 }
 .card{
    display: flex;
@@ -78,14 +89,15 @@ input, select{
    border: none;
    border-radius: 10px;
    box-shadow: 1px 5px 2px rgba(0, 0, 0, 0.4);
-   margin: 10px;
+   margin: 15px;
    padding: 15px;
    width: 200px;
    height: 150px;
 }
 .bookContent{
-   display: block;
-   align-items: center;
+   display: flex;
+   flex-direction: column;
+   align-items: start;
    justify-content: space-between;
    padding: 10px;
    gap: 1rem;
@@ -104,26 +116,24 @@ input, select{
 
 }
 .removeBtn{
-   padding: 5px;
+   padding: 8px;
    background-color: #e0e7ff;
    border: none;
    border-radius: 5px;
    font-size: 0.8rem;
    font-weight: bold;
-   width: 60px;
+   width: 70px;
 }
 .changeRead{
-   padding: 5px;
+   padding: 8px;
    background-color: #e0e7ff;
    border: none;
    border-radius: 5px;
-   width: 60px;
+   width: 70px;
    font-size: 0.8rem;
    font-weight: bold;
 }
-/* .change.active{
-   background-color: green;
-} */
+
 p{
    font-size: 1.2rem;
    font-weight: 120%;
