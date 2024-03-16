@@ -55,6 +55,7 @@ function createCard(book, item){
   bookTitle.textContent=book.title;
   bookAuthor.textContent="Author: "+book.author;
   bookPages.textContent="Pages: "+book.pages;
+//   bookRead.textContent=book.read? "read":"Not read";
 
   const removeBtn=document.createElement("button");
   removeBtn.classList.add("removeBtn");
@@ -62,7 +63,27 @@ function createCard(book, item){
   buttonsDiv.appendChild(removeBtn);
   removeBtn.addEventListener("click", removeBook);
 
-toggleRead(buttonsDiv);
+  const readBtn=document.createElement("button");
+  readBtn.classList.add("changeRead");
+  buttonsDiv.appendChild(readBtn);
+  readBtn.textContent=book.read=="already read"? "read":"No read";
+  readBtn.addEventListener("click", ()=>{
+   if(readBtn.textContent=="read"){
+      readBtn.textContent="No read";
+   }
+   else{
+      readBtn.textContent="read";
+   }
+});
+
+//   const readBtn=document.createElement("button");
+//   readBtn.classList.add('read-toggle');
+//   readBtn.classList.add(book.read ? 'read' : 'unread');
+//   readBtn.textContent=book.read ? 'Read' : 'Unread';
+//   buttonsDiv.appendChild(readBtn);
+//   readBtn.addEventListener("click",toggleRead);
+
+// toggleRead(buttonsDiv);
   
   return card;
 }
@@ -85,31 +106,42 @@ function removeBook(e){
    e.target.parentElement.parentElement.remove();
 }
 
-function toggleRead(container){
-   const readBtn=document.createElement("button");
-   readBtn.classList.add("changeRead");
+// function toggleRead(container){
+//    const readBtn=document.createElement("button");
+//    readBtn.classList.add("changeRead");
+//    // const index= booksContainer.querySelector(".card");
+//    // const book= myLibrary[Number.parseInt(index)];
+//    readBtn.textContent=readInput.value=="already read"? "read":"No read";
+//    // if(readBtn.textContent=="read"){
+//    //    readBtn.classList.toggle("active");
+//    // }
 
-   if(readInput.value=="already read"){
-      readBtn.textContent="read";
-   }
-   else{
-      readBtn.textContent="No read";
-   }
-   if(readBtn.textContent=="read"){
-      readBtn.classList.toggle("active");
-   }
+//    readBtn.addEventListener("click", ()=>{
+//       if(readBtn.textContent=="read"){
+//          readBtn.textContent="No read";
+//       }
+//       else{
+//          readBtn.textContent="read";
+//       }
+//    });
+//    container.appendChild(readBtn);
 
-   readBtn.addEventListener("click", ()=>{
-      this.classList.toggle("active");
-      if(readBtn.textContent=="read"){
-         return readBtn.textContent="No read";
-      }
-      else{
-         return readBtn.textContent="read";
-      }
-   });
-   container.appendChild(readBtn);
-}
+//    // if(readInput.value=="already read"){
+//    //    return "read";
+//    // }
+//    // else{
+//    //    return"No read";
+//    // }
+
+   
+//    // const index = booksContainer.querySelector("read-toggle");
+//    // const book = myLibrary[Number.parseInt(index)];
+//    // // book.toggleRead();
+
+//    // e.classList = 'read-toggle'
+//    // e.classList.add(book.read ? 'read' : 'unread');
+//    // e.textContent = `${book.read ? 'Read' : 'Unread'}`;
+// }
 
 dialogBtn.addEventListener(("click"), ()=>{
   showDialog.showModal();
